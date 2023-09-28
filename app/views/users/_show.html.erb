@@ -1,19 +1,20 @@
 <h2>User info</h2>
 <div>
-  <%= image_tag user.get_profile_image(200,200) %>
+ <%= image_tag user.get_profile_image(70,70) %>
 </div>
 
-<table>
-  <thead>
-    <th>name</th>
-    <th>introduction</th>
-  </thead>
-
+<table class="table">
   <tbody>
     <tr>
-      <td><%= user.name %></td>
-      <td><%= user.introduction %></td>
+    <th>name</th>
+    <td><%= user.name %></td>
     </tr>
+    <tr>
+    <th>introduction</th>
+    <td><%= user.introduction %></td>
+    </tr>
+  </tbody>
+</table>
 
   </tbody>
 </table>
@@ -26,12 +27,15 @@
 
 <h1>New book</h1>
 <%= form_with model: Book.new do |f| %>
-
+    <div class="form-group">
     <h4>Title</h4>
       <%= f.text_field :title %>
-
+    </div>
+    <div class="form-group">
     <h4>Opinion</h4>
       <%= f.text_area :body %>
-
-    <%= f.submit 'Create Book' %>
+    </div>
+    <div class="form-group">
+    <%= f.submit 'Create Book', class: "btn btn-success" %>
+    </div>
     <% end %>

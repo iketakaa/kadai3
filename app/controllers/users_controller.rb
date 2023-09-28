@@ -3,6 +3,7 @@ before_action :is_matching_login_user, except: [:index, :show]
 
   def index
     @user = User.all
+    @login_user = current_user
   end
 
   def show
